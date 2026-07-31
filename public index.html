@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Quran Modern</title>
+<meta name="description" content="Al-Qur'an dan murotal digital — baca dan dengarkan dengan nyaman, mudah diakses lewat pembaca layar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#konten-utama">Langsung ke konten utama</a>
+
+<header class="app-header">
+  <div class="app-header__brand">
+    <span class="app-header__ornament" aria-hidden="true"></span>
+    <div>
+      <p class="app-header__eyebrow">Al-Qur'an &amp; Murotal Digital</p>
+      <h1 class="app-header__title">My Quran Modern</h1>
+    </div>
+  </div>
+</header>
+
+<main id="konten-utama">
+
+  <!-- ====== TAB: AL-QURAN (teks) ====== -->
+  <section id="view-quran" class="view" aria-labelledby="tab-quran" hidden>
+
+    <div id="quran-daftar" class="panel">
+      <h2 class="panel__title">Pilih Surah</h2>
+      <label class="field-label" for="cari-surah">Cari surah</label>
+      <input type="search" id="cari-surah" class="text-input" placeholder="Contoh: Al-Fatihah, Yasin..." autocomplete="off" />
+      <ul id="daftar-surah-quran" class="surah-list" aria-label="Daftar 114 surah"></ul>
+    </div>
+
+    <div id="quran-baca" class="panel" hidden>
+      <button type="button" class="btn-back" id="btn-kembali-quran">
+        <span aria-hidden="true">&larr;</span> Kembali ke daftar surah
+      </button>
+      <div id="quran-surah-info" class="surah-info"></div>
+      <ol id="quran-ayat-list" class="ayat-list" aria-label="Ayat-ayat surah"></ol>
+    </div>
+
+  </section>
+
+  <!-- ====== TAB: MUROTAL (audio) ====== -->
+  <section id="view-murotal" class="view" aria-labelledby="tab-murotal" hidden>
+
+    <div id="murotal-daftar" class="panel">
+      <h2 class="panel__title">Pilih Surah untuk Didengarkan</h2>
+
+      <label class="field-label" for="pilih-qori">Qori</label>
+      <select id="pilih-qori" class="text-input"></select>
+
+      <ul id="daftar-surah-murotal" class="surah-list surah-list--scroll" aria-label="Daftar surah untuk murotal"></ul>
+    </div>
+
+    <div id="murotal-player" class="panel" hidden>
+      <button type="button" class="btn-back" id="btn-kembali-murotal">
+        <span aria-hidden="true">&larr;</span> Kembali ke daftar surah
+      </button>
+
+      <div id="murotal-surah-info" class="surah-info"></div>
+
+      <div class="player">
+        <p class="player__status" id="player-status" aria-live="polite">Ayat 1</p>
+
+        <div class="player__controls">
+          <button type="button" class="btn-icon" id="btn-ayat-sebelumnya" aria-label="Ayat sebelumnya">
+            <span aria-hidden="true">⏮</span>
+          </button>
+          <button type="button" class="btn-icon btn-icon--main" id="btn-putar-jeda" aria-label="Putar">
+            <span aria-hidden="true" id="ikon-putar-jeda">▶</span>
+          </button>
+          <button type="button" class="btn-icon" id="btn-ayat-berikutnya" aria-label="Ayat berikutnya">
+            <span aria-hidden="true">⏭</span>
+          </button>
+        </div>
+
+        <div class="player__repeat">
+          <label class="field-label" for="pilih-pengulangan">Ulangi tiap ayat</label>
+          <select id="pilih-pengulangan" class="text-input">
+            <option value="1">Tanpa pengulangan (putar sekali)</option>
+            <option value="3">3 kali</option>
+            <option value="5">5 kali</option>
+            <option value="10">10 kali</option>
+          </select>
+          <p class="player__repeat-count" id="repeat-counter" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <audio id="audio-player" preload="none"></audio>
+    </div>
+
+  </section>
+
+  <p id="pesan-error" class="pesan-error" role="alert" hidden></p>
+
+</main>
+
+<nav class="bottom-nav" aria-label="Navigasi utama">
+  <button type="button" class="bottom-nav__item" id="tab-murotal" aria-current="page">
+    <span class="bottom-nav__icon" aria-hidden="true">🎧</span>
+    <span>Murotal</span>
+  </button>
+  <button type="button" class="bottom-nav__item" id="tab-quran">
+    <span class="bottom-nav__icon" aria-hidden="true">📖</span>
+    <span>Al-Qur'an</span>
+  </button>
+</nav>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
